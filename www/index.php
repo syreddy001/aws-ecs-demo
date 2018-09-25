@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body>
-	<img id="logo" src="barlogo.png" />
+	<img id="logo" src="barlogo.png" width="142" height="142"/>
 	<h1><?php echo "Hello ".($_ENV["NAME"]?$_ENV["NAME"]:"world")."!"; ?></h1>
 	<?php if($_ENV["HOSTNAME"]) {?><h3>My hostname is <?php echo $_ENV["HOSTNAME"]; ?></h3><?php } ?>
 	<?php
