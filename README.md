@@ -13,17 +13,17 @@ Step2:
 -----
 Check the status of the Cluster and make sure its complete
 
-aws cloudformation describe-stacks --stack-name EcsClusterStack --query 'Stacks[*].[StackId, StackStatus]'
+aws cloudformation describe-stacks --stack-name dev-cloudformation-ecs-cluster --query 'Stacks[*].[StackId, StackStatus]'
 
 Step3:
 -----
 aws cloudformation create-stack --template-body file://ecs-jenkins-demo.template \
---stack-name JenkinsStack \
+--stack-name dev-cloudformation-ecs-JenkinsStack \
 --capabilities CAPABILITY_IAM \
 --tags Key=Name,Value=Jenkins \
 --region us-east-1 \
---parameters ParameterKey=EcsStackName,ParameterValue=EcsClusterStack
+--parameters ParameterKey=EcsStackName,ParameterValue=dev-cloudformation-ecs-cluster
 
 Step4:
 -----
-aws cloudformation describe-stacks --stack-name JenkinsStack --query 'Stacks[*].[StackId, StackStatus]'
+aws cloudformation describe-stacks --stack-name dev-cloudformation-ecs-JenkinsStack --query 'Stacks[*].[StackId, StackStatus]'
